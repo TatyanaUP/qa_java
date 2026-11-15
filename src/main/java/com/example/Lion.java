@@ -5,18 +5,21 @@ import java.util.List;
 public class Lion {
 
     boolean hasMane;
+    private final Feline feline; //инъекция зависимостей, её же в конструтор
 
-    public Lion(String sex) throws Exception {
+    public Lion(String sex, Feline feline) throws Exception {
+        this.feline = feline;
         if ("Самец".equals(sex)) {
             hasMane = true;
         } else if ("Самка".equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            throw new Exception("Используйте допустимые значения пола животного - Самец или Самка");
+            //исправлены ошибки, без учета регистра бы не помешало добавить, или приведение к 1му регистру
         }
     }
 
-    Feline feline = new Feline();
+
 
     public int getKittens() {
         return feline.getKittens();
