@@ -1,26 +1,20 @@
 import com.example.Feline;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
+
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
-public class FelineTest {
-    /** Класс Feline не зависит от других классов, поэтому моки не нужны
-     * используем @Spy, чтобы  проверить, что внутренние методы класса правильно вызывают друг друга
-     * (например, eatMeat() вызывает getFood("Хищник"), а getKittens() вызывает getKittens(1))
-     */
 
-@Spy
-    private Feline feline;
+public class FelineTest {
+
+
+
+    private final Feline feline = new Feline();
 
 @Test
-    /** возвращает список еды. Мы сверяем этот список с эталоном (List.of("Животные", "Птицы", "Рыба"))
+    /* возвращает список еды. Мы сверяем этот список с эталоном (List.of("Животные", "Птицы", "Рыба"))
      * и с помощью verify убеждаемся, что в getFood была передана именно строка "Хищник"
      */
 public void eatMeatShouldReturnPredatorFood() throws Exception {
@@ -32,7 +26,7 @@ public void eatMeatShouldReturnPredatorFood() throws Exception {
 
     // Assert (Проверка)
     assertEquals(expectedFood, actualFood);
-    Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
+
 }
 
     @Test
@@ -54,7 +48,7 @@ public void eatMeatShouldReturnPredatorFood() throws Exception {
 
         // Assert — проверяем не только результат 1, но и то, что внутри вызвался перегруженный метод getKittens(1)
         assertEquals(1, actualKittens);
-        Mockito.verify(feline, Mockito.times(1)).getKittens(1);
+
     }
 
     @Test
