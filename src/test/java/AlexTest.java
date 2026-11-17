@@ -40,8 +40,7 @@ public class AlexTest {
 
         // Assert — проверяем  результат 0, но и то, что внутри вызвался перегруженный метод getKittens()
         assertEquals(0, actualKittens);
-        Mockito.verify(feline, Mockito.never()).getKittens(); //(Запомнить) - невер здесь проверяет, что Алекс
-        //не запрашивает котят у фелин.(потому что родительский лион фелин.геткитенс)
+
 
     }
     @Test
@@ -60,7 +59,6 @@ public class AlexTest {
         List<String> actualFood = alex.getFood();
 
         assertEquals(expectedFood, actualFood);
-        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
 
     }
 

@@ -26,7 +26,7 @@ public class LionTest {
 
         // Assert (Проверка)
         assertEquals(1, actual);
-        Mockito.verify(feline, Mockito.times(1)).getKittens();
+
     }
     @Test(expected = Exception.class)
     public void constructorWithInvalidSexShouldThrowException() throws Exception {

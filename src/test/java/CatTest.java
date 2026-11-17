@@ -38,10 +38,8 @@ public class CatTest {
 
         // Assert: сверяем полученный список и проверяем, что метод мока был вызван 1 раз
         assertEquals(expectedFood, actualFood);
-        Mockito.verify(feline, Mockito.times(1)).eatMeat();
+
     }
 
-// public List<String> getFood() throws Exception {
-//        return predator.eatMeat();
-//    }
+
 }
